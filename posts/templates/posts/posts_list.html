@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+{% block title %}Posts List{% endblock %}
+{% block content %}
+    <section>
+        <h1>Posts List</h1>
+
+        {% for post in posts %}
+            <div class="wrapper">
+                <div class="card">
+                    <h3 class="card-title">{{ post.title }}</h3>
+                    <p class="card-content">{{ post.content }} <br> by {{ post.author }}</p>
+                    <button class="card-btn"><a href="{% url 'posts:page' slug=post.slug %}">READ MORE</a></button>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+{% endblock %}
